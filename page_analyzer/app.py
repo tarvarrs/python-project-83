@@ -1,6 +1,11 @@
-def main():
-    print("Hello from page-analyzer!")
+from flask import Flask, request, render_template, redirect, url_for, flash
+import os
+from dotenv import load_dotenv
 
+load_dotenv()
+app = Flask(__name__)
+app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
 
-if __name__ == "__main__":
-    main()
+@app.route('/')
+def index():
+    return 'Hello'
